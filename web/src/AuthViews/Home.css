@@ -1,0 +1,15 @@
+.Home
+{
+    background-color: black;
+    font-family: 'PT serif';
+}
+
+.wrap-it
+{
+    word-wrap: break-word;
+}
+
+.span.MuiLinearProgress-bar.MuiLinearProgress-barColorPrimary.MuiLinearProgress-bar1Determinate.css-5xe99f-MuiLinearProgress-bar1
+{
+    background-color: brown;
+}
