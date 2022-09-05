@@ -10,10 +10,11 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import logoWhite from '../Resources/logoWhite.png';
-import './Home.css';
+import './Landing.css';
 import { snackbarClasses } from '@mui/material';
 import { grey, red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
+import LogoComponent from '../Components/LogoComponent';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -61,32 +62,7 @@ function SwipeableTextMobileStepper() {
 
   return (
     <Box sx={{ flexGrow: 1, backgroundColor: 'black' }}>
-      <Paper className='logoPaper'
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          justifyContent: "center",
-          textAlign: "center",
-          alignItems: 'center',
-          height: 100,
-          pl: 2,
-          backgroundColor: 'black'
-        }}
-      >
-    <Box
-        component="img"
-        sx={{
-            alignItems: 'center',
-            height: 46,
-            display: 'block',
-            overflow: 'hidden',
-            backgroundColor: 'black'
-        }}
-        src={logoWhite}
-        alt='Logo'
-        />
-      </Paper>
+      <LogoComponent />
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -99,7 +75,7 @@ function SwipeableTextMobileStepper() {
               <Box
                 component="img"
                 sx={{
-                  height: 370,
+                  height: '55vh',
                   display: 'block',
                   overflow: 'hidden',
                   width: '100%',
@@ -122,9 +98,10 @@ function SwipeableTextMobileStepper() {
 
 
         sx= {{
-            paddingTop:2,
-            paddingLeft:2,
+            paddingTop:'3vh',
+            paddingLeft:'2vh',
             backgroundColor: 'black',
+            width: '100%',
             color: 'red'
 
         }}
@@ -135,22 +112,23 @@ function SwipeableTextMobileStepper() {
             backgroundColor: 'black',
             color: 'white',
             textAlign: 'left',
-            paddingLeft: 2,
             fontFamily: 'PT Sans Serif',
-            paddingTop: 0.5,
-            paddingLeft: 2,
-            paddingRight: 10,
+            paddingTop: '1vh',
+            paddingLeft: '5vw',
+            paddingRight: '30vw',
             wordWrap: 'break-word',
-            fontSize: 25,
+            fontSize: '7vw',
 
         }}
     ><text class='wrap-it'>
        Hacé tu pedido en          
         instantes!</text>
+        </Typography>
+
         <br></br>
-        <Button variant="solid" sx={{backgroundColor: '#952B3A', marginRight:1,marginTop:5}}>Iniciar sesión</Button>
-       <Button variant="solid" sx={{backgroundColor: '#514949',marginTop:5}}>Registrarme</Button>
-       </Typography>
+        <Button variant="solid" className='button' sx={{backgroundColor: '#952B3A', color: 'white',marginTop:'5vh',marginRight:'4vw', width:'40vw'}}>Iniciar sesión</Button>
+        <Button variant="solid" className='button'sx={{backgroundColor: '#514949',color: 'white',marginTop: '5vh', width:'40vw'}}>Registrarme</Button>
+        
 
 
 

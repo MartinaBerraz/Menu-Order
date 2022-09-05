@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './AuthViews/Home';
+import Home from './OrderViews/Home';
 import Login from './AuthViews/Login';
 import { Routes, Route } from "react-router-dom";
 

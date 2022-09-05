@@ -3,10 +3,14 @@ import './Login.css';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from '@mui/material';
+import { Link, Paper, Box } from '@mui/material';
 import { Sheet } from '@mui/joy';
+import { borderColor } from "@mui/system";
+import logoWhite from '../Resources/logoWhite.png';
+import LogoComponent from "../Components/LogoComponent";
 
 function Login() {
+
 
     const [data, setData]= useState({username:"", password:""})
     const {username, password} = data;
@@ -24,10 +28,14 @@ function Login() {
 
 
 
+
+
     return(
         <form className="Form" onSubmit={handleSubmit}>
-            <Sheet sx={{backgroundColor: 'black'}}>
-            <Typography>
+            <Sheet sx={{backgroundColor: 'black', alignContent: 'center', height:'100vh'}}>
+            <LogoComponent />
+            <Typography 
+                className="title">
                 <h1>Log in</h1>
             </Typography>
                 <TextField 
@@ -35,8 +43,19 @@ function Login() {
                     label="E-mail"
                     type="text" 
                     name="username" 
+                    variant="filled"
                     value={username}
                     onChange={handleChange}
+
+                    InputProps={{disableUnderline: true}}
+
+                    sx={{marginTop: '4%',
+                        "&.MuiInputLabel-root": {color: 'green'},//styles the label
+                        "&.MuiOutlinedInput-root": {
+                          "& > fieldset": { borderColor: "orange" }
+                        },
+                    }}
+
                 />
 
                 <TextField 
@@ -44,18 +63,17 @@ function Login() {
                     label="Contraseña"
                     type="text" 
                     name="password" 
-                    value={username}
-                    onChange={handleChange}
-                    sx={{backgroundColor: 'white', textDecorationColor:'#952B3A'} }   
-                />
-            <Button type="submit" name="submit" id="button"
-                
-                sx={{
-                mt: 1, // margin top
+                    value={password}
+                    variant="filled"
+                    onChange={handleChange} 
+                    InputProps={{disableUnderline: true, borderColor: 'brown'}}
+
+                    sx={{marginTop: '4%'
+                    
                 }}
-            >
-                Log in
-            </Button>
+                />
+
+            <Button variant="solid" type="submit" sx={{backgroundColor: '#952B3A',margin:'auto',marginTop:'4%',display:'block',alignContent:'center'}}>Ingresar</Button>
             <Typography
                 endDecorator={<Link href="/sign-up">Sign up</Link>}
                 fontSize="sm"
@@ -63,7 +81,6 @@ function Login() {
             >
             Don't have an account?
             </Typography>
-            <input id="button" type="submit" name="submit"/>
             </Sheet>
         </form>
     );

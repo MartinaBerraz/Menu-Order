@@ -13,3 +13,9 @@
 {
     background-color: brown;
 }
+
+.button
+{
+    display: inline-block;
+    color: white;
+}
