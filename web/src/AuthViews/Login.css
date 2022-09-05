@@ -1,20 +1,18 @@
-.form
-{
-  background-color: black;
-}
 
-.MuiInput-root
+
+.MuiFormControl-root
 {
   background-color: white;
+
+
 }
 
-.sheet
-{
-  background-color: red;
+.title{
+  color:white;
+  font-family: 'PT Sans Serif';
 }
 
-#filled-basic-label
+.MuiFormControl-root label:focus
 {
-  color: brown;
-  border-color: brown;
+  background-color: white;
 }
