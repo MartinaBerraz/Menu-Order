@@ -34,9 +34,8 @@ function Login() {
         <form className="Form" onSubmit={handleSubmit}>
             <Sheet sx={{backgroundColor: 'black', alignContent: 'center', height:'100vh'}}>
             <LogoComponent />
-            <Typography 
-                className="title">
-                <h3>Bienvenido!</h3>
+            <Typography>
+                <p className="plain">Cree su cuenta en segundos</p>
             </Typography>
                 <TextField 
                     id="filled-basic"
@@ -65,26 +64,40 @@ function Login() {
                     onChange={handleChange} 
                     InputProps={{disableUnderline: true, borderColor: 'brown'}}
 
+                    sx={{marginTop: '10%',
+                    width: '60vw'
+                    
+                }}
+
+                
+                />
+
+                <TextField 
+                    id="filled-basic"
+                    label="Confirmar contraseña"
+                    type="text" 
+                    name="password" 
+                    value={password}
+                    variant="filled"
+                    onChange={handleChange} 
+                    InputProps={{disableUnderline: true, borderColor: 'brown'}}
+
                     sx={{marginTop: '4%',
                     width: '60vw'
                     
                 }}
+
+                
                 />
 
-            <Button variant="solid" type="submit" sx={{backgroundColor: '#952B3A',width:'60%',margin:'auto',marginTop:'10%',display:'block',alignContent:'center'}}>Ingresar</Button>
-            <Typography
-                className="plain"
-                endDecorator={<Link href="/sign-up">Sign up</Link>}
-                sx={{  }}
-            >
-            He olvidado la contraseña
-            </Typography>
+            <Button variant="solid" type="submit" sx={{backgroundColor: '#952B3A',width:'60%',margin:'auto',marginTop:'10%',display:'block',alignContent:'center',marginBottom:'1%'}}>Registrarme</Button>
+
             <Typography
                 className="subtitle"
                 endDecorator={<Link href="/sign-up">Sign up</Link>}
                 fontSize="sm"
             >
-            No tienes una cuenta?
+            Ya tienes una cuenta?
             </Typography>
             </Sheet>
         </form>

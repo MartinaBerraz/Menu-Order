@@ -112,12 +112,12 @@ function SwipeableTextMobileStepper() {
             backgroundColor: 'black',
             color: 'white',
             textAlign: 'left',
-            fontFamily: 'PT Sans Serif',
             paddingTop: '1vh',
-            paddingLeft: '5vw',
+            paddingLeft: '7vw',
             paddingRight: '30vw',
             wordWrap: 'break-word',
-            fontSize: '7vw',
+            fontSize: '1.3rem',
+            fontFamily: 'Helvetica'
 
         }}
     ><text class='wrap-it'>
@@ -126,8 +126,8 @@ function SwipeableTextMobileStepper() {
         </Typography>
 
         <br></br>
-        <Button variant="solid" className='button' sx={{backgroundColor: '#952B3A', color: 'white',marginTop:'5vh',marginRight:'4vw', width:'40vw'}}>Iniciar sesión</Button>
-        <Button variant="solid" className='button'sx={{backgroundColor: '#514949',color: 'white',marginTop: '5vh', width:'40vw'}}>Registrarme</Button>
+        <Button variant="solid" className='button' sx={{backgroundColor: '#952B3A', color: 'black',bottom:'1%', width:'40vw',marginRight:'5vw'}}>Iniciar sesión</Button>
+        <Button variant="solid" className='button'sx={{backgroundColor: '#514949',color: 'black',bottom:'1%', width:'40vw'}}>Registrarme</Button>
         
 
 

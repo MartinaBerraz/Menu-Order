@@ -2,6 +2,8 @@ import LogoComponent from "../Components/LogoComponent";
 import {Card, CardMedia, Paper,Box, Typography} from "@mui/material"
 import CardComponent from "../Components/CardComponent";
 import './Home.css'
+import NavBar from "../Components/NavBar";
+
 export default function Home()
 {
     return(
@@ -15,11 +17,11 @@ export default function Home()
                 </div>
             </Card>
 
-            <CardComponent type='Entradas'></CardComponent>
+            <CardComponent type='Entrada'></CardComponent>
             <CardComponent type='Plato Principal'></CardComponent>
-            <CardComponent type='Postres'></CardComponent>
+            <CardComponent type='Postre'></CardComponent>
 
-        
+            <NavBar></NavBar>
         </>
     )
 }

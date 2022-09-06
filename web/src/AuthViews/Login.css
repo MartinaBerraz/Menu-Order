@@ -9,10 +9,25 @@
 
 .title{
   color:white;
-  font-family: 'PT Sans Serif';
 }
 
 .MuiFormControl-root label:focus
 {
   background-color: white;
+}
+
+.plain
+{
+  align-self: center;
+  padding-top: 1.5vh;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.subtitle
+{
+  padding-top: 0.2%;
+  color:brown;
+  align-self: center;
+  font-size: 0.7rem; 
 }

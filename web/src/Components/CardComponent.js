@@ -8,10 +8,11 @@ import './CardComponent.css';
 const types= ['Entradas', 'Plato Principal', 'Postres']
 
 const food = [
+  
   {
-    src: 'https://images.unsplash.com/photo-1579783411194-f697db862dcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-    title: 'Rabas',
-    description: '$2000',
+    src: 'https://images.unsplash.com/photo-1619926340139-9a2e2245a64e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    title: 'Empanadas',
+    description: '$1200',
     type: 'Entrada'
   },
   {
@@ -20,25 +21,45 @@ const food = [
     description: '$1200',
     type: 'Entrada'
   },
+
   {
-    src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-    title: 'Mountain view',
-    description: 'Plato principal',
+    src: 'https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
+    title: 'Salmón',
+    description: '$1900',
+    type: 'Plato Principal',
+  },
+
+  {
+    src: 'https://images.unsplash.com/photo-1635552709208-41a3d96f7bdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    title: 'Hamburguesa',
+    description: '$1200',
+    type: 'Plato Principal'
+
   },
   {
-    src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-    title: 'Night view',
-    description: 'Entrada',
+    src: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Casuela de mariscos',
+    description: '$200',
+    type: 'Plato Principal'
+
   },
   {
-    src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-    title: 'Lake view',
-    description: '´PlatoPrincipal',
+    src: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
+    title: 'Cheesecake',
+    description: '$700',
+    type: 'Postre'
   },
   {
-    src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-    title: 'Mountain view',
-    description: 'Postre',
+    src: 'https://images.unsplash.com/photo-1505252929202-c4f39cda4d49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    title: 'Volcan chocolate',
+    description: '$700',
+    type: 'Postre'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
+    title: 'Helado',
+    description: '$500',
+    type: 'Postre'
   },
 ];
 
@@ -61,7 +82,7 @@ export default function CarouselRatio(props) {
         '::-webkit-scrollbar': { display: 'none' },
       }}
     >
-      {food.map((item) => (
+      {food.filter((item) => item.type === props.type).map((item) => (
         <Card
           row
           key={item.title}
@@ -69,7 +90,10 @@ export default function CarouselRatio(props) {
           sx={{
             gap: 2,
             backgroundColor: 'white',
-            minWidth: '35vw',
+            width: '50%',
+            marginLeft: '2vw',
+            flexGrow: 0,
+            minWidth:'45%',
             '--Card-padding': (theme) => theme.spacing(2),
           }}
         >
