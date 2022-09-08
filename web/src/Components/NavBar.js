@@ -12,7 +12,7 @@ export default function NavBar() {
   
 
   return (
-    <Box sx={{ width: '100%', mt:3, position:"sticky", bottom:"0px", backgroundColor: "black"}}>
+    <Box sx={{ width: '100%', paddingBottom:'2vh', position:"sticky", bottom:"0px", backgroundColor: "black"}}>
       <BottomNavigation
         className='Bar'
         sx={{backgroundColor: 'black', color: 'white'}}
