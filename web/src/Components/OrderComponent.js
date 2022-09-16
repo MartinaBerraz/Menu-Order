@@ -5,7 +5,9 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import { Typography } from '@mui/material';
+import { Typography, Paper, ButtonGroup, Button, IconButton } from '@mui/material';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
 const total =100
 export default function OrderComponent() {
@@ -14,12 +16,17 @@ export default function OrderComponent() {
 
   return (
     <>
-    <Box sx={{ width: '100%', height:'0.5vh', position:"sticky", bottom:"20vh",backgroundColor: "white"}}></Box>
-    <Box sx={{ width: '100%', height:'10vh', position:"sticky", bottom:"10vh", backgroundColor: "black"}}>
-      <Typography level="body2" sx={{textAlign: 'left', marginLeft:'5vw',paddingTop:'1vh', color:'white'}}>Total orden: ${total} </Typography>
-      <Typography level="body2" sx={{textAlign: 'left', marginLeft:'5vw',paddingTop:'1vh',fontSize:'1rem'}}>Total pedido: ${total} </Typography>
-      <Typography level="body2" fontWeight="md" sx={{textAlign: 'left',marginLeft:'6vw'}}>${total}</Typography>
-    </Box>
+    <Paper elevation={5} sx={{ width: '100%', height:'13vh', position:"sticky", bottom:"7vh", backgroundColor: "black"}}>
+  
+      <ButtonGroup variant="contained" sx={{backgroundColor: '#952B3A', color:'white',borderRadius:'10%', alignContent:'center',marginTop:'5%'}} aria-label="outlined primary button group">
+        <IconButton  sx={{backgroundColor:'#952B3A'}}><AddIcon /></IconButton>
+        <Typography level="h1" fontSize='1.5rem' sx={{marginInline:'1vw', color:'black'}}> 2 </Typography>
+        <IconButton sx={{backgroundColor:'#952B3A'}}><RemoveIcon /></IconButton>
+      </ButtonGroup>
+      <Button variant="solid" className='button' sx={{backgroundColor: 'white', color: 'black',width:'40vw', marginInline:'3%',marginBottom:'3.5%'}}>Agregar $100</Button>
+
+      </ Paper>
+
     </>
   );
 }

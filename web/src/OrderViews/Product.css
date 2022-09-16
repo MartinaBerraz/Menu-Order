@@ -1,22 +1,16 @@
 .plainTitle 
 {
-    color:white;
+    color:black;
     text-align: left;
-    padding-left: 7vw;
-    padding-top: 3%;
+    padding-left: 6vw;
+    padding-top: 2%;
+    font-weight: bold;
 }
 
 .plainSubtitle
 {
-    color:white;
+    color:black;
     text-align: left;
-    padding-inline: 7vw;
+    padding-inline: 6vw;
     padding-top: 1vh;
-}
-
-#filled-basic
-{
-    width: 80vw;
-    border-radius: 20;
-    background-color: gainsboro;
 }

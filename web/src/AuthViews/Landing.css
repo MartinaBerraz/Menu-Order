@@ -1,7 +1,6 @@
 .Home
 {
     background-color: black;
-    font-family: 'PT serif';
 }
 
 .wrap-it
@@ -17,5 +16,5 @@
 .button
 {
     display: inline-block;
-    color: white;
+    color: black;
 }

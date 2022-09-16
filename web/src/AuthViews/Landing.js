@@ -15,6 +15,7 @@ import { snackbarClasses } from '@mui/material';
 import { grey, red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import LogoComponent from '../Components/LogoComponent';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -79,6 +80,7 @@ function SwipeableTextMobileStepper() {
                   display: 'block',
                   overflow: 'hidden',
                   width: '100%',
+                  paddingBottom:'2vh'
 
                 }}
                 src={step.imgPath}
@@ -88,7 +90,7 @@ function SwipeableTextMobileStepper() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      <MobileStepper
+      {/* <MobileStepper
         theme={theme}
         steps={maxSteps}
         position="static"
@@ -99,30 +101,36 @@ function SwipeableTextMobileStepper() {
 
         sx= {{
             paddingTop:'3vh',
-            paddingLeft:'2vh',
+            paddingLeft:'7vw',
             backgroundColor: 'black',
             width: '100%',
-            color: 'red'
+            color: 'red',
 
         }}
         
-      />
+      /> */}
+      <Box>
+        <HorizontalRuleIcon sx={{color: 'white'}} className='icon' ></HorizontalRuleIcon>
+        <HorizontalRuleIcon sx={{color: 'white'}} className='icon' ></HorizontalRuleIcon>
+        <HorizontalRuleIcon sx={{color: 'white'}} className='icon' ></HorizontalRuleIcon>
+
+
+      </Box>
     <Typography 
            sx= {{
             backgroundColor: 'black',
             color: 'white',
-            textAlign: 'left',
-            paddingTop: '1vh',
-            paddingLeft: '7vw',
-            paddingRight: '30vw',
+            textAlign: 'center',
+            paddingTop: '5vh',
+            paddingBottom: '2vh',
             wordWrap: 'break-word',
-            fontSize: '1.3rem',
-            fontFamily: 'Helvetica'
+            fontSize: '1rem',
+            fontFamily: 'PT Serif',
+            letterSpacing: '0.05rem',
+            lineHeight:'1.7rem'
 
         }}
-    ><text class='wrap-it'>
-       Hacé tu pedido en          
-        instantes!</text>
+    ><text class='wrap-it'>HACÉ TU PEDIDO EN INSTANTES</text>
         </Typography>
 
         <br></br>
