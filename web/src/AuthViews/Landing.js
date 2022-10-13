@@ -16,6 +16,7 @@ import { grey, red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import LogoComponent from '../Components/LogoComponent';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import {Link, withRouter} from 'react-router-dom';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -25,23 +26,21 @@ const images = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
-    'https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80'
+    'https://images.unsplash.com/photo-1546456674-8aa8c81b9b8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+  },
+  {
+    label: 'Goč, Serbia',
+    imgPath:'https://images.unsplash.com/photo-1561758033-7e924f619b47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
   },
   {
     label: 'Bird',
-    imgPath:
-    'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80',
+    imgPath:'https://images.unsplash.com/photo-1546456674-7ce72b9286b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
 },
   {
     label: 'Bali, Indonesia',
     imgPath:
-      'https://images.unsplash.com/photo-1502301103665-0b95cc738daf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80'
-  },
-  {
-    label: 'Goč, Serbia',
-    imgPath:
-      'https://images.unsplash.com/photo-1611765083444-a3ce30f1c885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-  },
+      'https://images.unsplash.com/photo-1583694589417-a7b12fe0815b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+  }
 ];
 
 function SwipeableTextMobileStepper() {
@@ -134,8 +133,8 @@ function SwipeableTextMobileStepper() {
         </Typography>
 
         <br></br>
-        <Button variant="solid" className='button' sx={{backgroundColor: '#952B3A', color: 'black',bottom:'1%', width:'40vw',marginRight:'5vw'}}>Iniciar sesión</Button>
-        <Button variant="solid" className='button'sx={{backgroundColor: '#514949',color: 'black',bottom:'1%', width:'40vw'}}>Registrarme</Button>
+        <Button  component={Link} to={{pathname: '/Login'}} variant="solid" className='button' sx={{backgroundColor: '#952B3A', color: 'black',bottom:'1%', width:'40vw',marginRight:'5vw'}}>Iniciar sesión</Button>
+        <Button  component={Link} to={{pathname: '/SignUp'}} variant="solid" className='button'sx={{backgroundColor: '#514949',color: 'black',bottom:'1%', width:'40vw'}}>Registrarme</Button>
         
 
 

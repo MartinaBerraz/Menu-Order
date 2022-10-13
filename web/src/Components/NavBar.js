@@ -6,6 +6,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import './NavBar.css';
+import MyOrder from '../OrderViews/MyOrder'
+import {NavLink, withRouter} from 'react-router-dom';
 
 export default function NavBar() {
   const [value, setValue] = React.useState(0);
@@ -22,9 +24,9 @@ export default function NavBar() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction sx={{color: 'white'}} className='icon' label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction sx={{color: 'white'}} className='icon' label="Buscar" icon={<SearchIcon />} />
-        <BottomNavigationAction sx={{color: 'white'}} className='icon' label="Pedir" icon={<RestaurantIcon />} />
+        <BottomNavigationAction  component={NavLink} to={{pathname: '/Home'}} sx={{color: 'white'}} className='icon' label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction  component={NavLink} to={{pathname: '/MyOrder'}} sx={{color: 'white'}} className='icon' label="Buscar" icon={<SearchIcon />} />
+        <BottomNavigationAction  component={NavLink} to={{pathname: '/MyOrder'}} sx={{color: 'white'}} className='icon' label="Pedir" icon={<RestaurantIcon />} />
       </BottomNavigation>
     </Box>
   );

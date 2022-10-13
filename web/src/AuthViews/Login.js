@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import './Login.css';
-import { TextField } from '@mui/material';
+import { TextField, Paper, PaginationItemPropsSizeOverrides } from '@mui/material';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link, Paper, Box } from '@mui/material';
 import { Sheet } from '@mui/joy';
 import { borderColor } from "@mui/system";
 import logoWhite from '../Resources/logoWhite.png';
 import LogoComponent from "../Components/LogoComponent";
+import {Link, withRouter} from 'react-router-dom';
 
 function Login() {
 
@@ -34,11 +34,14 @@ function Login() {
         <form className="Form" onSubmit={handleSubmit}>
             <Sheet sx={{backgroundColor: 'black', alignContent: 'center', height:'100vh'}}>
             <LogoComponent />
+            <Paper sx={{height:'0.3vh',backgroundColor:'white'}} />
+
             <Typography 
-                className="title">
-                <h3>Bienvenido!</h3>
+                className="title" sx ={{marginTop: '10vh', fontSize: '1.3rem', fontFamily: 'PT Serif',
+                letterSpacing: '0.05rem'}}>BIENVENIDO
             </Typography>
                 <TextField 
+                    className="textField"
                     id="filled-basic"
                     label="E-mail"
                     type="text" 
@@ -46,43 +49,32 @@ function Login() {
                     variant="filled"
                     value={username}
                     onChange={handleChange}
-
+                    sx={{marginTop:'5vh'}}
                     InputProps={{disableUnderline: true}}
-
-                    sx={{marginTop: '4%',
-                        width: '60vw'
-                    }}
 
                 />
 
                 <TextField 
+                    className="textField"
                     id="filled-basic"
                     label="Contraseña"
                     type="text" 
                     name="password" 
                     value={password}
                     variant="filled"
+                    sx={{marginTop:'3vh'}}
                     onChange={handleChange} 
                     InputProps={{disableUnderline: true, borderColor: 'brown'}}
-
-                    sx={{marginTop: '4%',
-                    width: '60vw'
-                    
-                }}
                 />
 
-            <Button variant="solid" type="submit" sx={{backgroundColor: '#952B3A',width:'60%',margin:'auto',marginTop:'10%',display:'block',alignContent:'center'}}>Ingresar</Button>
-            <Typography
+            <Button className='BrownBotton' component={Link} to={{pathname: '/Home'}} variant="solid" type="submit" sx={{backgroundColor: '#952B3A', borderRadius: '10px',margin:'auto',marginTop:'20%', marginBottom:'10%',display:'block', fontSize: '100%'}}>Ingresar</Button>
+            <Typography component={Link} to={{pathname: '/SignUp'}}
                 className="plain"
-                endDecorator={<Link href="/sign-up">Sign up</Link>}
-                sx={{  }}
             >
             He olvidado la contraseña
             </Typography>
-            <Typography
+            <Typography component={Link} to={{pathname: '/SignUp'}}
                 className="subtitle"
-                endDecorator={<Link href="/sign-up">Sign up</Link>}
-                fontSize="sm"
             >
             No tienes una cuenta?
             </Typography>

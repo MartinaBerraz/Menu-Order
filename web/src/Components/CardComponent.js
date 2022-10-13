@@ -4,6 +4,7 @@ import Box from '@mui/joy/Box';
 import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
 import './CardComponent.css';
+import {Link, withRouter} from 'react-router-dom';
 
 const types= ['Entradas', 'Plato Principal', 'Postres']
 
@@ -66,7 +67,7 @@ const food = [
 export default function CarouselRatio(props) {
   return (
     <>
-    <Typography class="typetitle">{props.type}</Typography>
+    <Typography class="typetitle" >{props.type}</Typography>
     <Box
       sx={{
         display: 'flex',
@@ -74,7 +75,7 @@ export default function CarouselRatio(props) {
         py: 1,
         overflow: 'auto',
         backgroundColor: 'black',
-        width: 343,
+        width: '99%',
         scrollSnapType: 'x mandatory',
         '& > *': {
           scrollSnapAlign: 'center',
@@ -84,6 +85,7 @@ export default function CarouselRatio(props) {
     >
       {food.filter((item) => item.type === props.type).map((item) => (
         <Card
+          component={Link} to={{pathname: '/Product'}}
           row
           key={item.title}
           variant="outlined"
@@ -94,6 +96,7 @@ export default function CarouselRatio(props) {
             marginLeft: '2vw',
             flexGrow: 0,
             minWidth:'45%',
+            textDecoration: 'none',
             '--Card-padding': (theme) => theme.spacing(2),
           }}
         >
@@ -108,8 +111,8 @@ export default function CarouselRatio(props) {
             />
           </AspectRatio>
           <Box sx={{ fontSize:'80%' }}>
-            <Typography fontWeight="md">{item.title}</Typography>
-            <Typography level="body2">{item.description}</Typography>
+            <Typography className="plain" sx={{fontFamily: 'PT Serif'}} fontWeight="bold" >{item.title}</Typography>
+            <Typography className="plain" >{item.description}</Typography>
           </Box>
         </Card>
       ))}

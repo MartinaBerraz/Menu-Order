@@ -7,6 +7,28 @@
 
 }
 
+.textField
+{
+  width: 80vw;
+  border-radius: 13px;
+  margin-bottom: 30vh;
+  border: 20;
+  border-color: black;
+  
+}
+
+.BrownBotton
+{ 
+  background-color: #952B3A;
+  width:80%;
+  height:5%;
+  margin:auto;
+  border-radius: 20px;
+  display:block;
+  align-content: center;
+
+}
+
 .title{
   color:white;
 }
@@ -16,18 +38,25 @@
   background-color: white;
 }
 
+.css-o943dk-MuiFormLabel-root-MuiInputLabel-root.Mui-focused
+{
+  color:#952B3A !important;
+}
+
 .plain
 {
   align-self: center;
-  padding-top: 1.5vh;
-  font-size: 0.8rem;
-  color: white;
+  margin-top: 1.9vh;
+  font-size: 1.3rem;
+  color: whitesmoke;
+  font-weight: normal;
 }
 
 .subtitle
 {
-  padding-top: 0.2%;
+  padding-top: 0.5%;
   color:brown;
   align-self: center;
+  display: block;
   font-size: 0.7rem; 
 }

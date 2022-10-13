@@ -17,13 +17,13 @@ export default function OrderComponent() {
   return (
     <>
     <Paper elevation={5} sx={{ width: '100%', height:'13vh', position:"sticky", bottom:"7vh", backgroundColor: "black"}}>
-  
-      <ButtonGroup variant="contained" sx={{backgroundColor: '#952B3A', color:'white',borderRadius:'10%', alignContent:'center',marginTop:'5%'}} aria-label="outlined primary button group">
-        <IconButton  sx={{backgroundColor:'#952B3A'}}><AddIcon /></IconButton>
-        <Typography level="h1" fontSize='1.5rem' sx={{marginInline:'1vw', color:'black'}}> 2 </Typography>
-        <IconButton sx={{backgroundColor:'#952B3A'}}><RemoveIcon /></IconButton>
+      <Paper sx={{height:'0.3vh',backgroundColor:'white'}} />
+      <ButtonGroup variant="contained" sx={{backgroundColor: '#952B3A', color:'white',borderRadius:'10px', alignContent:'center',marginTop:'5%'}} aria-label="outlined primary button group">
+        <IconButton  sx={{backgroundColor:'#952B3A'}}><RemoveIcon /></IconButton>
+        <Typography  fontSize='2.5vh' sx={{marginInline:'1vw', color:'black', lineHeight: '2.5rem'}}> 2 </Typography>
+        <IconButton sx={{backgroundColor:'#952B3A'}}><AddIcon /></IconButton>
       </ButtonGroup>
-      <Button variant="solid" className='button' sx={{backgroundColor: 'white', color: 'black',width:'40vw', marginInline:'3%',marginBottom:'3.5%'}}>Agregar $100</Button>
+      <Button variant="solid" className='button' sx={{backgroundColor: 'white',borderRadius:'10px', color: 'black',width:'40vw', marginInline:'3%',marginBottom:'3.5%'}}>Agregar $100</Button>
 
       </ Paper>
 

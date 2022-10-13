@@ -11,9 +11,9 @@ export default function MyOrder()
     return(
         <>
             <LogoComponent />
-            <Box sx={{ width: '100%', height:'0.5vh', backgroundColor: "white"}}></Box>
+            <Box sx={{ width: '100%', height:'0.3vh', backgroundColor: "white"}}></Box>
             <VerticalCards />
-            <Button variant="solid" sx={{  position:'sticky',bottom:'20%',backgroundColor:'whitesmoke', width:'30vw',borderRadius:'10%'}}>PEDIR</Button>
+            <Button variant="solid" sx={{  position:'sticky',bottom:'20%',backgroundColor:'whitesmoke', width:'30vw',borderRadius:'13px'}}>PEDIR</Button>
 
             
             <NavBar></NavBar>

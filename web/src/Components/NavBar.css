@@ -5,6 +5,11 @@
 
 .icon
 {
-    color:aliceblue;
+    color:white;
     text-decoration-color: aliceblue;
+}
+
+.icon.Mui-selected
+{
+    color: white !important; 
 }
