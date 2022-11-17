@@ -1,4 +1,4 @@
-package com.base.project.domain;
+package com.base.project.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Data
@@ -16,13 +16,13 @@ import static javax.persistence.FetchType.EAGER;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     private Long id;
     private String name;
     private String username;
     private String password;
 
-    //when i load the user u should also load its roles
-    @ManyToMany(fetch = EAGER)
+    //eager: load all of the roles when adding user
+    @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 }

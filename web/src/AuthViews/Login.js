@@ -58,7 +58,7 @@ function Login() {
                     className="textField"
                     id="filled-basic"
                     label="Contraseña"
-                    type="text" 
+                    type="password" 
                     name="password" 
                     value={password}
                     variant="filled"

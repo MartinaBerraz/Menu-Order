@@ -3,12 +3,18 @@ import {Card, CardMedia, Paper,Box, Typography} from "@mui/material"
 import CardComponent from "../Components/CardComponent";
 import './Home.css'
 import NavBar from "../Components/NavBar";
+import RestClient from "../RestClient.ts";
+import LogoutIcon from '@mui/icons-material/Logout';
+import Fab from '@mui/material/Fab';
+import {NavLink, withRouter} from 'react-router-dom';
 
 export default function Home()
 {
+
     return(
         <>
             <LogoComponent></LogoComponent>
+            
             <Card sx={{marginBottom: '1vh'}}>
                 <div style={{ position: "relative" }}>
                     <CardMedia style={{ height: "250px", paddingTop: "1%" }}   component="img" image={"https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80"} title="Pancakes" alt="Pancakes"/> 
@@ -16,6 +22,11 @@ export default function Home()
                     <div style={{position: "absolute", color: "white",top: '90%',left: "30%",transform: "translateX(-50%)",fontSize:'3vw', fontFamily: 'PT Serif'}}> Focaccia del chef</div>
                 </div>
             </Card>
+
+            <Fab component={NavLink} to={{pathname: '/Login'}} sx={{backgroundColor: 'cream', position:'absolute',bottom:'81%',right:'8%',alignSelf:'flex-start'}} aria-label="add">
+                    <LogoutIcon />
+                </Fab>
+
 
             <CardComponent type='Entrada'></CardComponent>
             <CardComponent type='Plato Principal'></CardComponent>

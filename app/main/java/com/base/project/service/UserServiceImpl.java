@@ -1,9 +1,9 @@
 package com.base.project.service;
 
-import com.base.project.domain.Role;
-import com.base.project.domain.User;
-import com.base.project.repo.RoleRepo;
-import com.base.project.repo.UserRepo;
+import com.base.project.model.Role;
+import com.base.project.model.User;
+import com.base.project.repository.RoleRepo;
+import com.base.project.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-//Create constructors and make sure all args are passed
-@Transactional
-@Slf4j //for logs
-public class userServiceImpl implements UserService {
+@Service @RequiredArgsConstructor @Transactional @Slf4j
+public class UserServiceImpl implements UserService {
     private final UserRepo userRepo;
     private final RoleRepo roleRepo;
 
@@ -34,11 +30,9 @@ public class userServiceImpl implements UserService {
 
     @Override
     public void addRoleToUser(String username, String roleName) {
-        log.info("Adding role {} to the user {}", roleName, username);
-
+        log.info("Adding role {} to user {}", roleName, username);
         User user = userRepo.findByUsername(username);
         Role role = roleRepo.findByName(roleName);
-
         user.getRoles().add(role);
     }
 
@@ -50,7 +44,8 @@ public class userServiceImpl implements UserService {
 
     @Override
     public List<User> getUsers() {
-        log.info("Get all users");
+
+        log.info("Fetching all users");
         return userRepo.findAll();
     }
 }

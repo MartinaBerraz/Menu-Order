@@ -62,7 +62,7 @@ function Login() {
                 <TextField 
                     id="filled-basic"
                     label="Contraseña"
-                    type="text" 
+                    type="password" 
                     className="textField"
                     name="password" 
                     value={password}
@@ -79,7 +79,7 @@ function Login() {
                 <TextField 
                     id="filled-basic"
                     label="Confirmar contraseña"
-                    type="text" 
+                    type="password" 
                     className="textField"
                     name="password" 
                     value={password}

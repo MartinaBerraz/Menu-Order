@@ -64,7 +64,9 @@ const food = [
   },
 ];
 
-export default function CarouselRatio(props) {
+
+export default function CardComponent(props) {
+
   return (
     <>
     <Typography class="typetitle" >{props.type}</Typography>

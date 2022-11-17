@@ -25,7 +25,7 @@ export default function NavBar() {
         }}
       >
         <BottomNavigationAction  component={NavLink} to={{pathname: '/Home'}} sx={{color: 'white'}} className='icon' label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction  component={NavLink} to={{pathname: '/MyOrder'}} sx={{color: 'white'}} className='icon' label="Buscar" icon={<SearchIcon />} />
+        <BottomNavigationAction  component={NavLink} to={{pathname: '/Filter'}} sx={{color: 'white'}} className='icon' label="Buscar" icon={<SearchIcon />} />
         <BottomNavigationAction  component={NavLink} to={{pathname: '/MyOrder'}} sx={{color: 'white'}} className='icon' label="Pedir" icon={<RestaurantIcon />} />
       </BottomNavigation>
     </Box>
