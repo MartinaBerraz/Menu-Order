@@ -8,6 +8,10 @@ import { borderColor } from "@mui/system";
 import logoWhite from '../Resources/logoWhite.png';
 import LogoComponent from "../Components/LogoComponent";
 import {Link, withRouter} from 'react-router-dom';
+import UserService from '../Services/UserService.ts'
+import bcrypt from 'bcryptjs';
+
+
 
 function Login() {
 
@@ -23,6 +27,19 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault(); //to reset every time the form is submitted
         console.log(data);
+
+        const result = UserService.validateUser(data.username,data.password);
+
+        if(result)
+        {
+            console.log("SUCCESSSSSSS")
+        }
+        else
+        {
+            console.lof("FAILED")
+        }
+
+
         setData({username:"",password:""});
     }
 
@@ -67,7 +84,7 @@ function Login() {
                     InputProps={{disableUnderline: true, borderColor: 'brown'}}
                 />
 
-            <Button className='BrownBotton' component={Link} to={{pathname: '/Home'}} variant="solid" type="submit" sx={{backgroundColor: '#952B3A', borderRadius: '10px',margin:'auto',marginTop:'20%', marginBottom:'10%',display:'block', fontSize: '100%'}}>Ingresar</Button>
+            <Button className='BrownBotton' variant="solid" type="submit" sx={{backgroundColor: '#952B3A', borderRadius: '10px',margin:'auto',marginTop:'20%', marginBottom:'10%',display:'block', fontSize: '100%'}}>Ingresar</Button>
             <Typography component={Link} to={{pathname: '/SignUp'}}
                 className="plain"
             >

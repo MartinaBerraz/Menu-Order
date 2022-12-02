@@ -7,9 +7,21 @@ import RestClient from "../RestClient.ts";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Fab from '@mui/material/Fab';
 import {NavLink, withRouter} from 'react-router-dom';
+import { useEffect, useState } from "react";
 
-export default function Home()
+export default function Home({food})
 {
+    const [types, setTypes] = useState([])
+
+
+
+    useEffect(()=> {
+        RestClient.getTypes().then((res)=>{
+            setTypes(res)
+            console.log("types res",res)
+        })
+      },[food]);
+
 
     return(
         <>
@@ -27,10 +39,9 @@ export default function Home()
                     <LogoutIcon />
                 </Fab>
 
-
-            <CardComponent type='Entrada'></CardComponent>
-            <CardComponent type='Plato Principal'></CardComponent>
-            <CardComponent type='Postre'></CardComponent>
+                {types.map((item, index) => {
+                return (<CardComponent key={index} type={item} data={food} />)
+                })}
 
             <NavBar></NavBar>
         </>

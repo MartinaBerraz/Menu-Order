@@ -70,8 +70,8 @@ const data = [
                     sx={{ flexBasis: 120, borderRadius: "sm", overflow: "auto" }}
                   >
                     <img
-                      src={`${item.src}?w=120&fit=crop&auto=format`}
-                      srcSet={`${item.src}?w=120&fit=crop&auto=format&dpr=2 2x`}
+                      src={`${item.image}?w=120&fit=crop&auto=format`}
+                      srcSet={`${item.image}?w=120&fit=crop&auto=format&dpr=2 2x`}
                       alt={item.title}
                     />
                   </AspectRatio>

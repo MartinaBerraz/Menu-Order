@@ -9,24 +9,78 @@ import { borderColor } from "@mui/system";
 import logoWhite from '../Resources/logoWhite.png';
 import LogoComponent from "../Components/LogoComponent";
 import {Link, withRouter} from 'react-router-dom';
+import MyModal from "../Components/MyModal";
+import bcrypt from 'bcryptjs';
+import UserService from '../Services/UserService.ts'
 
 function Login() {
 
 
-    const [data, setData]= useState({username:"", password:""})
-    const {username, password} = data;
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+   
+    // States for checking the errors
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(false);
 
 
-    const handleChange=(e)=>{
-        setData({...data,[e.target.name]:[e.target.value]});
-    }
-
+    // Handling the name change
+    const handleName = (e) => {
+        setName(e.target.value);
+        setSubmitted(false);
+    };
+    
+    // Handling the email change
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        setSubmitted(false);
+    };
+    
+    // Handling the password change
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+        setSubmitted(false);
+    };
+    
+     
+    // Handling the form submission
     const handleSubmit = (e) => {
-        e.preventDefault(); //to reset every time the form is submitted
-        console.log(data);
-        setData({username:"",password:""});
-    }
+        e.preventDefault();
+            if (name === '' || email === '' || password === '') {
+        setError(true);
+        } else {
+            setSubmitted(true);
+            setError(false);
+        }
+    };
 
+        // Showing error message if error is true
+    const errorMessage = () => {
+        return (
+        <div
+            className="error"
+            style={{
+            display: error ? '' : 'none',
+            }}>
+            <h1>Please enter all the fields</h1>
+        </div>
+        );
+    };
+
+      // Showing success message
+    const successMessage = () => {
+            if (submitted === true) {
+
+                const hashedPassword = bcrypt.hashSync(password, '$2a$10$CwTycUXWue0Thq9StjUM0u') // hash created previously created upon sign up
+
+                UserService.addUser(name,email,hashedPassword)
+                return(<MyModal message="User successfully registered" opened={true}> </MyModal>)
+            } else { 
+
+            }
+    };
+    
 
 
 
@@ -41,53 +95,55 @@ function Login() {
                 letterSpacing: '0.05rem', marginTop: '15%'}}>
                 <p className="plain">CREAR UNA CUENTA</p>
             </Typography>
+            <div className="messages">
+                {errorMessage()}
+                {successMessage()}
+            </div>
                 <TextField 
                 
                     id="filled-basic"
-                    label="E-mail"
+                    label="Name"
                     className="textField"
                     type="text" 
-                    name="username" 
+                    name="Name" 
                     variant="filled"
-                    value={username}
-                    onChange={handleChange}
+                    value={name}
+                    onChange={handleName}
 
                     InputProps={{disableUnderline: true}}
 
-                    sx={{marginTop: '4%'
+                    sx={{marginTop: '6%'
                     }}
 
                 />
 
                 <TextField 
                     id="filled-basic"
-                    label="Contraseña"
-                    type="password" 
+                    label="E-Mail"
+                    type="email" 
                     className="textField"
-                    name="password" 
-                    value={password}
+                    name="E-mail" 
+                    value={email}
                     variant="filled"
-                    onChange={handleChange} 
+                    onChange={handleEmail} 
                     InputProps={{disableUnderline: true, borderColor: 'brown'}}
 
-                    sx={{marginTop: '10%'
-                }}
-
+                    sx={{marginTop: '6%'}}
                 
                 />
 
                 <TextField 
                     id="filled-basic"
-                    label="Confirmar contraseña"
+                    label="Password"
                     type="password" 
                     className="textField"
                     name="password" 
                     value={password}
                     variant="filled"
-                    onChange={handleChange} 
+                    onChange={handlePassword} 
                     InputProps={{disableUnderline: true, borderColor: 'brown'}}
 
-                    sx={{marginTop: '4%'
+                    sx={{marginTop: '6%'
                     
                 }}
 

@@ -31,21 +31,21 @@ import { ButtonGroup, Button, IconButton, Box } from '@mui/material';
       >
         <List sx={{ py: "var(--List-divider-gap)" }}>
           {food.map((item, index) => (
-            <React.Fragment key={item.title}>
+            <React.Fragment key={item.name}>
               <ListItem>
                 <ListItemButton sx={{ gap: 2}}>
                   <AspectRatio
                     sx={{ flexBasis: 120, borderRadius: "sm", overflow: "auto" }}
                   >
                     <img
-                      src={`${item.src}?w=120&fit=crop&auto=format`}
-                      srcSet={`${item.src}?w=120&fit=crop&auto=format&dpr=2 2x`}
+                      src={`${item.image}?w=120&fit=crop&auto=format`}
+                      srcSet={`${item.image}?w=120&fit=crop&auto=format&dpr=2 2x`}
                       alt={item.title}
                     />
                   </AspectRatio>
                   <ListItemContent sx={{boxSizing: 'border-box'}}>
                     <Box sx={{display: 'inline-block'}} >
-                    <Typography fontWeight="md" sx={{fontFamily:'PT Serif', letterSpacing: '0.05rem'}} >{item.title}</Typography>
+                    <Typography fontWeight="md" sx={{fontFamily:'PT Serif', letterSpacing: '0.05rem'}} >{item.name}</Typography>
                     <Typography level="body2">${item.price}</Typography>
                     </Box>
 

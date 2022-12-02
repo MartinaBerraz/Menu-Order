@@ -6,7 +6,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from "react";
 import FilteredVerticalCards from "../Components/FilteredVerticalCards";
-const food = [
+const l = [
   
     {
       src: 'https://images.unsplash.com/photo-1619926340139-9a2e2245a64e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
@@ -62,20 +62,21 @@ const food = [
     },
   ];
   
-export default function Filter()
+export default function Filter({food})
 {
     const [filteredFood, setFilteredFood] = useState(food)
-    const List = ['Entrada','Plato Principal','Postre','Bebidas']
-
     const [filter, setFilter] = useState("")
 
-    useEffect(()=>{
-        setFilteredFood(food.filter(f => f.title.toLowerCase().includes(filter.toLowerCase())))
 
-    },[filter])
+
+    const filterfood=()=> {
+      setFilteredFood(food.filter(f => f.name.toLowerCase().includes(filter.toLowerCase())))
+    }
 
     const handleChange=(e)=>{
         setFilter(e.target.value)
+        filterfood()
+        console.log(filter)
     }
     return(
         <>
