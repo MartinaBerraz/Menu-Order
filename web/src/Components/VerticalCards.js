@@ -11,7 +11,9 @@ import './VerticalCards.css'
 import { ButtonGroup, Button, IconButton, Box } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-const data = [
+import { useEffect } from 'react';
+
+const l = [
   
     {
       src: 'https://images.unsplash.com/photo-1619926340139-9a2e2245a64e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
@@ -40,13 +42,17 @@ const data = [
     }
   ];
 
-  export default function VerticalCards() {
+  export default function VerticalCards({data, order}) {
 
+    const [orderDetails, setOrderDetails] = React.useState(order)
     const [food, setFood] = React.useState(data)
 
-    
-    
 
+    useEffect(()=> {
+      console.log(food)
+    },[food]);
+
+    if (food !== undefined ){
     return (
       <Sheet
         variant="outlined"
@@ -63,7 +69,7 @@ const data = [
       >
         <List sx={{ py: "var(--List-divider-gap)" }}>
           {food.map((item, index) => (
-            <React.Fragment key={item.title}>
+            <React.Fragment key={item.productId}>
               <ListItem>
                 <ListItemButton sx={{ gap: 2}}>
                   <AspectRatio
@@ -72,7 +78,7 @@ const data = [
                     <img
                       src={`${item.image}?w=120&fit=crop&auto=format`}
                       srcSet={`${item.image}?w=120&fit=crop&auto=format&dpr=2 2x`}
-                      alt={item.title}
+                      alt={item.name}
                     />
                   </AspectRatio>
                   <ListItemContent sx={{boxSizing: 'border-box'}}>
@@ -84,7 +90,7 @@ const data = [
                     <ButtonGroup variant="contained" sx={{backgroundColor: 'white',color:'white',borderRadius:'10px',marginTop:'5%', height:'2rem'}} aria-label="outlined primary button group">
                         <IconButton  sx={{backgroundColor:'white'}}><RemoveIcon sx={{fontSize:'1rem'}}  /></IconButton>
                         <Typography  fontSize='1rem' sx={{marginInline:'1vw', color:'black', lineHeight: '2rem'}}> {item.quantity} </Typography>
-                        <IconButton onClick = {()=>setFood({...item, quantity: item.quantity+=1}) }sx={{backgroundColor:'white'}}><AddIcon sx={{fontSize:'1rem'}} /></IconButton>
+                        <IconButton onClick = {()=>setOrderDetails({...item, quantity: item.quantity+=1}) }sx={{backgroundColor:'white'}}><AddIcon sx={{fontSize:'1rem'}} /></IconButton>
                     </ButtonGroup>
                     </Box>
 
@@ -97,5 +103,6 @@ const data = [
         </List>
       </Sheet>
     );
+          }
   }
   

@@ -50,12 +50,18 @@ export default function Product()
     const [subtotal, setSubtotal] = useState(0)
 
     const [product, setProduct] = useState()
+    const [espec, setEspec] = useState()
 
 
     const fetchProduct = () => {
         RestClient.getProduct(id).then((res) =>{
             setProduct(res)
             console.log("food",res)})
+    }
+
+    const handleEspecs = (e)=>{
+        setEspec(e.target.value)
+        console.log(espec)
     }
 
     useEffect(() =>
@@ -69,9 +75,17 @@ export default function Product()
         fetchProduct();
       }, []);
 
+    
+      const submitProduct = () => {
+            RestClient.addProductToOrder(id,espec, subtotal, quantity, 1  )
+            handleOpen()
+        }
+    
+    
       if (product === undefined) {
         return <>Still loading...</>;
       }
+    
 
     return(
         <>
@@ -109,9 +123,11 @@ export default function Product()
                     multiline
                     rows={1}
                     variant="filled"
+                    onChange={handleEspecs}
+                    value = {espec}
                     sx={{borderRadius:'12px',marginTop:'4vh',width:'77vw',backgroundColor:'white', border: '2px', }}
                     />
-            <Button onClick={handleOpen} variant="solid" className='button' sx={{backgroundColor: '#952B3A', fontStyle:'bold', borderRadius:'10px', color: 'black',width:'50vw', marginTop:'5%',marginInline:'3%',marginBottom:'3.5%', height:'5%', fontFamily: 'PT Serif',
+            <Button onClick={submitProduct} variant="solid" className='button' sx={{backgroundColor: '#952B3A', fontStyle:'bold', borderRadius:'10px', color: 'black',width:'50vw', marginTop:'5%',marginInline:'3%',marginBottom:'3.5%', height:'5%', fontFamily: 'PT Serif',
                 letterSpacing: '0.05rem'}}>Agregar</Button>
             </Box>
             <div>

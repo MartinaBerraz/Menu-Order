@@ -28,7 +28,7 @@ export default class RestClient
                     email: mail,
                     password: psw
                 })
-            }).then(function (response) {
+            }).then((response)=> {
                 console.log(response);
             })
             .catch(function (error) {
@@ -42,7 +42,7 @@ export default class RestClient
 
     static validateUser(mail,psw): Promise<any> {
         const url = `${RestClient.baseUrl}/users/validate`
-        const promise1 = fetch(url,
+        const jsonPromise = fetch(url,
             {
                 method: "POST",
                 headers: {
@@ -52,13 +52,13 @@ export default class RestClient
                 body: JSON.stringify({
                     email: mail
                 })
-            })
+            }).then(r => r.json())
+            
 
-            const promise2 = promise1.then(response =>{
-                console.log(response)
-            })
-    
-            return promise2
+            jsonPromise.then(data => console.log(data)); // and this works
+
+
+            return jsonPromise
 
     }
 }

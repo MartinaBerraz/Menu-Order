@@ -9,7 +9,9 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import RestClient from "../RestClient.ts"
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -26,11 +28,34 @@ const style = {
   };
 
   
-export default function MyOrder()
+export default function MyOrder({food})
 {
     const [open, setOpen] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [orderDetails, setOrderDetails] = useState([])
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    useEffect(()=> {
+        RestClient.getProductsInOrder(1).then((res)=>{
+            setOrderDetails(res)
+            console.log("products",res)
+        })
+
+        
+      },[]);
+
+      useEffect(()=> {
+        if(orderDetails !== undefined)
+        {
+            orderDetails.map((od) => {setProducts(...products, food.filter(p => p.productId === od.productId))
+                console.log(products)})
+        }
+      },[setOrderDetails]);
+
+
+    if(orderDetails !== undefined && products !== undefined){
     return(
         <>
             <LogoComponent />
@@ -39,7 +64,7 @@ export default function MyOrder()
             <Typography sx={{color:'white', lineHeight: '7vh', fontFamily:'PT Serif', letterSpacing: '0.05rem'}}> Total: $3400 </Typography>
             
             <Box sx={{ width: '100%', height:'0.1vh', backgroundColor: "white"}}></Box>
-            <VerticalCards />
+            <VerticalCards data={products} order={orderDetails}/>
             <Button onClick={handleOpen} variant="solid" sx={{  position:'sticky',bottom:'20%',backgroundColor:'whitesmoke', width:'30vw',borderRadius:'13px'}}>PEDIR</Button>
             <div>
             <Modal
@@ -73,4 +98,5 @@ export default function MyOrder()
             <NavBar></NavBar>
         </>
     )
+            }
 }
