@@ -18,6 +18,8 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import { NavLink } from "react-router-dom";
+import RestClient from "../RestClient.ts";
+import {useParams } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -36,33 +38,40 @@ const style = {
 
 
 
-const food = 
-    {
-      src: 'https://images.unsplash.com/photo-1619926340139-9a2e2245a64e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-      title: 'Empanadas',
-      description: 'Empanadas de carne de cerdo y vegetales acompañados de una salsa picante de ají' ,
-      precio: 1200,
-      type: 'Entrada'
-    }
-
-
 
 export default function Product()
 {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const { id } = useParams();
 
     const [quantity, setQuantity] = useState(0)
     const [subtotal, setSubtotal] = useState(0)
 
+    const [product, setProduct] = useState()
+
+
+    const fetchProduct = () => {
+        RestClient.getProduct(id).then((res) =>{
+            setProduct(res)
+            console.log("food",res)})
+    }
+
     useEffect(() =>
     {
-        setSubtotal(quantity*food.precio)
-    
+        if(product !== undefined){
+        setSubtotal(quantity*product.price)
+        }
     },[quantity]);
 
+    useEffect(() => {
+        fetchProduct();
+      }, []);
 
+      if (product === undefined) {
+        return <>Still loading...</>;
+      }
 
     return(
         <>
@@ -72,7 +81,7 @@ export default function Product()
 
             <Card sx={{marginBottom: '1vh'}}>
                 <div style={{ position: "relative" }}>
-                    <CardMedia style={{ height: "250px"}}   component="img" image={food.src}/> 
+                    <CardMedia style={{ height: "250px"}}   component="img" image={product.image}/> 
                 </div>
             </Card>
             
@@ -80,11 +89,11 @@ export default function Product()
                     <LogoutIcon />
                 </Fab>
             <Typography className='plainTitle' sx={{fontFamily: 'PT Serif',
-                letterSpacing: '0.05rem'}}  variant='h4'>{food.title}</Typography>
+                letterSpacing: '0.05rem'}}  variant='h4'>{product.name}</Typography>
             <Typography className='plainSubtitle'sx={{fontFamily: 'PT Serif',
-                letterSpacing: '0.05rem', fontSize: '1.1rem'}}  variant='body2'>{food.description}</Typography>
+                letterSpacing: '0.05rem', fontSize: '1.1rem'}}  variant='body2'>{product.description}</Typography>
             <Typography className='plainTitle' sx={{fontFamily: 'PT Serif',
-                letterSpacing: '0.05rem'}} variant='body2'>{food.precio}</Typography>
+                letterSpacing: '0.05rem'}} variant='body2'>{product.price}</Typography>
             <ButtonGroup variant="contained" sx={{backgroundColor: 'white', color:'white',borderRadius:'10px', alignContent:'left',marginTop:'5%'}} aria-label="outlined primary button group">
                 <IconButton  sx={{backgroundColor:'white'}} onClick={()=> {if (quantity > 0) {setQuantity(quantity-1)}}}><RemoveIcon /></IconButton>
                 <Typography  fontSize='2.5vh' sx={{marginInline:'1vw', color:'black', lineHeight: '2.5rem'}}>{quantity}</Typography>

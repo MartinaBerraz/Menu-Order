@@ -32,6 +32,7 @@ function App() {
         <Route exact path="/MyOrder" element={<MyOrder />} />
         <Route exact path="/Product" element={<Product />} />
         <Route exact path="/Filter" element={<Filter food={food} />} />
+        <Route path="/products/:id" element={ <Product />}/>
       </Routes>
     </Routers>
      </div>
